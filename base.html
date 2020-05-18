@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const gameMoves = ["rock", "paper", "scissors"];
+
+        function computerPlay() {
+            let x = Math.floor(Math.random() * 3);
+            return gameMoves[x];
+        }
+
+        function askQuestion() {
+            let x = prompt("Rock, Paper or Scissors?");
+            x.toLowerCase();
+            if (x == "rock" || x == "paper" || x == "scissors") {
+                return x;
+            } else {
+                 alert("You have not entered a correct value!");
+                 askQuestion();
+            }
+        }
+
+        function playRound() {
+            let computerSelection = computerPlay();
+            let playerSelection = askQuestion();
+            let youWin = ("You win, " + playerSelection + " beats " + computerSelection + "!");
+            let youLose = ("You lose, " + computerSelection + " beats " + playerSelection + "!");
+
+            if ((playerSelection == "rock" && computerSelection == "scissors") ||
+                (playerSelection == "paper" && computerSelection == "rock") ||
+                (playerSelection == "scissors" && computerSelection == "paper")) {
+                return youWin;
+            } else if (playerSelection === computerSelection) {
+                return ("You've tied!");
+            } else {
+                return youLose;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
