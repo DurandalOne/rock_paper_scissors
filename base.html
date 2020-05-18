@@ -21,15 +21,12 @@
             x.toLowerCase();
             if (x == "rock" || x == "paper" || x == "scissors") {
                 return x;
-            } else {
-                 alert("You have not entered a correct value!");
-                 askQuestion();
             }
         }
 
-        function playRound() {
-            let computerSelection = computerPlay();
-            let playerSelection = askQuestion();
+        function playRound(playerSelection, computerSelection) {
+            computerSelection = computerPlay();
+            playerSelection = askQuestion();
             let youWin = ("You win, " + playerSelection + " beats " + computerSelection + "!");
             let youLose = ("You lose, " + computerSelection + " beats " + playerSelection + "!");
 
