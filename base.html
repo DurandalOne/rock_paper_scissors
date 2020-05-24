@@ -4,65 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
 </head>
 
 <body>
-    <script>
-
-        function computerPlay() {
-            const gameMoves = ["rock", "paper", "scissors"];
-            let x = Math.floor(Math.random() * 3);
-            return gameMoves[x];
-        }
-
-        function askQuestion() {
-            let x = prompt("Rock, Paper or Scissors?");
-            return x.toLowerCase();
-        }
-
-        function playRound() {
-            computerSelection = computerPlay();
-            playerSelection = askQuestion();
-        }
-
-        function game(num) {
-            let playerPoints = 0;
-            let compPoints = 0;
-            let gamesPlayed = 0;
-
-            while (gamesPlayed < num) {
-                playRound();
-                let youWin = ("You win that round, " + playerSelection + " beats " + computerSelection + "!");
-                let youLose = ("You lose that round, " + computerSelection + " beats " + playerSelection + "!");
-
-                if ((playerSelection == "rock" && computerSelection == "scissors") ||
-                    (playerSelection == "paper" && computerSelection == "rock") ||
-                    (playerSelection == "scissors" && computerSelection == "paper")) {
-                    alert (youWin);
-                    playerPoints++;
-                    gamesPlayed++;
-                } else if (playerSelection === computerSelection) {
-                    alert ("You've tied that round!");
-                    gamesPlayed++;
-                } else {
-                    alert (youLose);
-                    compPoints++;
-                    gamesPlayed++;
-                }
-            }
-
-            if (playerPoints > compPoints) {
-                alert("You win!");
-            } else if (playerPoints < compPoints) {
-                alert("You lose!");
-            } else {
-                alert("It's a draw!");
-            }
-        }
-
-
-    </script>
+    <h1>
+        <p>Choose your move! Best of 5!</p>
+    </h1>
+    <h1>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <p id="result">No rounds played yet</p>
+    </h1>
+    <h2>
+        <p id="playerScore">Your score is 0</p>
+        <p id="computerScore">The computer's score is 0</p>
+    </h2>
+    <h2>
+        <button id="restart">Click here to play again</button>
+    </h2>
 </body>
+<script src=script.js></script>
 
 </html>
