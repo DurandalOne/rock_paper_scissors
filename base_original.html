@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function computerPlay() {
+            const gameMoves = ["rock", "paper", "scissors"];
+            let x = Math.floor(Math.random() * 3);
+            return gameMoves[x];
+        }
+
+        function askQuestion() {
+            let x = prompt("Rock, Paper or Scissors?");
+            return x.toLowerCase();
+        }
+
+        function playRound() {
+            computerSelection = computerPlay();
+            playerSelection = askQuestion();
+        }
+
+        function game(num) {
+            let playerPoints = 0;
+            let compPoints = 0;
+            let gamesPlayed = 0;
+
+            while (gamesPlayed < num) {
+                playRound();
+                let youWin = ("You win that round, " + playerSelection + " beats " + computerSelection + "!");
+                let youLose = ("You lose that round, " + computerSelection + " beats " + playerSelection + "!");
+
+                if ((playerSelection == "rock" && computerSelection == "scissors") ||
+                    (playerSelection == "paper" && computerSelection == "rock") ||
+                    (playerSelection == "scissors" && computerSelection == "paper")) {
+                    alert (youWin);
+                    playerPoints++;
+                    gamesPlayed++;
+                } else if (playerSelection === computerSelection) {
+                    alert ("You've tied that round!");
+                    gamesPlayed++;
+                } else {
+                    alert (youLose);
+                    compPoints++;
+                    gamesPlayed++;
+                }
+            }
+
+            if (playerPoints > compPoints) {
+                alert("You win!");
+            } else if (playerPoints < compPoints) {
+                alert("You lose!");
+            } else {
+                alert("It's a draw!");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
